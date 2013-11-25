@@ -1,1 +1,5 @@
 use vm as the base for all apps
+Considering:
+	[ ]cloudstack
+	[ ]openstack
+	[*]ovirt
