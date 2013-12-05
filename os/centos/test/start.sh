@@ -1,7 +1,7 @@
 #!/bin/bash
-if [[ $1 != [1-3] ]]
+if [[ $1 != [0-2] ]]
 then
-	echo -e 'Usage:\n\tstart.sh {1|2|3}'
+	echo -e 'Usage:\n\tstart.sh {0|1|2}'
 	exit
 fi
 KVM_CMD="qemu-system-x86_64 -no-user-config -nodefaults"
@@ -10,7 +10,7 @@ KVM_CMD="qemu-system-x86_64 -no-user-config -nodefaults"
 #	 STANDARD OPTIONS	#
 #################################
 #FLAG_INNER_NET="-net nic -net user"
-FLAG_INNER_NET="-net tap,ifname=tap0,script=no,downscript=no -net nic,model=virtio,macaddr=94:de:80:7a:30:0$1"
+FLAG_INNER_NET="-net tap,ifname=tap$1,script=no,downscript=no -net nic,model=virtio,macaddr=94:de:80:7a:30:0$((2*$1))"
 FLAG_CPU_TYPE="-cpu host"
 FLAG_CPU_FEATURE="-smp 4,sockets=1,cores=4"
 FLAG_MM="-m 1024M"
