@@ -1,0 +1,13 @@
+1. Install
+yum -y install gcc mpich2 mpich2-devel
+
+2. Compile and Run
+# mpicc job1.c -o job1
+Hosts should have all the same mpd.conf and mpd.hosts
+
+start:
+# mpdboot -f /root/mpi.hosts -n 3
+run:
+# mpirun job1
+stop
+# mpiallexit
