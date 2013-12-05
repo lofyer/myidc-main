@@ -1,3 +1,9 @@
 I'm trying to build a dhcp server here, yes, with centos.
 
-iPXE in QEMU seems to be not a complete one.
+Since iPXE in QEMU seems to be not a complete one, we need a chainloader.
+
+# git clone http://git.ipxe.org/ipxe.git
+# cd ipxe/src
+# make EMBED=../../embed.ipxe
+
+Then copy bin/undionly.kpxe to tftpboot, put your command to tftpboot/boot.ipxe.
