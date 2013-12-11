@@ -1,0 +1,60 @@
+Here's the steps
+
+1. Install gluster
+# wget -P /etc/yum.repos.d http://download.gluster.org/pub/gluster/glusterfs/LATEST/CentOS/glusterfs-epel.repo
+
+For server:
+# yum install -y glusterfs glusterfs-fuse glusterfs-server
+# /etc/init.d/glusterd start
+# /etc/init.d/glusterfsd start
+# chkconfig glusterfsd on
+# chkconfig glusterd on
+
+For client:
+# yum -y install glusterfs glusterfs-fuse
+
+2. Add peers
+On any host of these nodes(resolvable), run
+node0 # gluster
+        > peer probe node1.lofyer.org
+        > peer probe node2.lofyer.org
+
+3. Add bricks
+Red Hat recommends XFS when formatting the disk sub-system. XFS supports
+metadata journaling, which facilitates quicker crash recovery. The XFS file
+system can also be de-fragmented and enlarged while mounted and active. Any
+other POSIX compliant disk file system, such as Ext3, Ext4, ReiserFS may also
+work, but has not been tested widely.
+So I use xfs on all the hosts of the cluster:
+# yum install -y xfsprogs
+# fdisk /dev/vdb < EOF
+n
+p
+1
+
+
+w
+EOF
+mkfs.xfs /dev/vdb1
+# echo -e "/dev/vdb1\tdist1\txfs\tdefaults\t0 0" >> /etc/fstab
+# mkdir /dist1
+# mount.xfs /dev/vdb1 /dist1
+
+       > peer status
+
+4. Add volume
+
+4.1 Distributed
+# gluster volume create gluster-vol1 node0.lofyer.org:/dist0 node1.lofyer.org:/dist1 node2.lofyer.org:/dist2
+# gluster volume start gluster-vol1
+4.2 Replicated
+# gluster volume create gluster-vol1 replica 3 node0.lofyer.org:/dist0 node1.lofyer.org:/dist1 node2.lofyer.org:/dist2
+# gluster volume start gluster-vol1
+4.3 Stripped
+# gluster volume create gluster-vol1 strip 3 node0.lofyer.org:/dist0 node1.lofyer.org:/dist1 node2.lofyer.org:/dist2
+# gluster volume start gluster-vol1
+Start volume
+# gluster volume start gluster-vol1
+
+5. Mount
+# mount.glusterfs node0.lofyer.org:/gluster-vol1 /mnt
