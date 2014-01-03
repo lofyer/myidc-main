@@ -1,0 +1,10 @@
+=====
+MyIDC
+=====
+This repo is the collection and expansion of those I have known.
+================================================================
+IT MIGHT BE DANGEROUS!!!
+========================
+
+Use cluster as base app-arch of the idc.
+========================================

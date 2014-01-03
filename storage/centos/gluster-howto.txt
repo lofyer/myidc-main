@@ -58,3 +58,9 @@ Start volume
 
 5. Mount
 # mount.glusterfs node0.lofyer.org:/gluster-vol1 /mnt
+
+6. Problems
+Reuse bricks:
+# setfattr -x trusted.glusterfs.volume-id $brick_path
+# setfattr -x trusted.gfid $brick_path
+# rm -rf $brick_path/.glusterfs

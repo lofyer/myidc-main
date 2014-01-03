@@ -1,0 +1,28 @@
+app:
+*ddos
+***vm-cluster
+
+board:
+*choose one/multiple model
+
+cluster:
+mpich2-base
+*mpich2-coding
+*ipxe-iscsi-boot
+
+l3:
+**openflow
+**openvswitch
+
+power:
+*choose one
+
+stand:
+*add CAD
+
+storage:
+gluster-base
+*gluster-as-nfs
+
+supervision:
+*Admin-Panel
