@@ -1,0 +1,8 @@
+[openshift]
+name=Openshift
+baseurl=https://openshift.redhat.com/app/repo/rpms/$releasever/$basearch/
+failovermethod=priority
+skip_if_unavailable=1
+gpgkey=https://openshift.redhat.com/app/repo/RPM-GPG-KEY-redhat-openshifthosted,https://openshift.redhat.com/app/repo/RPM-GPG-KEY-redhat-beta,https://openshift.redhat.com/app/repo/RPM-GPG-KEY-redhat-release
+enabled=1
+gpgcheck=0
