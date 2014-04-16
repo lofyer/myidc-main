@@ -1,5 +1,4 @@
-HA for:
-	vm-app
-	cluster
-	gluster(built-in)
-	power
+1. HA for:
+	VM
+	glusterfs(built-in)
+	power supply

@@ -1,1 +1,3 @@
-hard drive, filesystem
+1. Configuration of hard drives, filesystem
+2. Source of gluster:
+	git clone https://github.com/gluster/glusterfs

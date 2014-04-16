@@ -1,7 +1,4 @@
-control panel for myidc and apps
-
-add unique LeapMotion
-
-considering to use Deltacloud or specific one
-
-Django: https://www.djangoproject.com/m/releases/1.6/Django-1.6.2.tar.gz
+1. Control panel for myidc and apps.
+	Add unique LeapMotion
+	Considering to use Deltacloud or specific one
+	Django: https://www.djangoproject.com/m/releases/1.6/Django-1.6.2.tar.gz
