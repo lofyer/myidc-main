@@ -1,1 +1,4 @@
 1. Setup dns on the router or make a new one.
+
+	Ref: http://www.unixmen.com/dns-server-installation-step-by-step-using-centos-6-3/
+	# yum install bind* -y
