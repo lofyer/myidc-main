@@ -1,0 +1,12 @@
+yum install rpm-build redhat-rpm-config kernel-devel openssl-devel
+wget http://openvswitch.org/releases/openvswitch-1.9.3.tar.gz
+tar xf openvswitch-1.9.3.tar.gz
+cd openvswitch-1.9.3
+ADD FOLLOWING CONTENT TO openvswitch-kmod-rhel6.spec.in
+	%files
+	%defattr(-,root,root,-)
+	/etc/depmod.d/openvswitch.conf
+make dist
+cp openvswitch-1.9.3.tar.gz ~/rpmbuild/SOURCES/openvswitch-1.9.3.tar.gz
+rpmbuild -bb rhel/openvswitch.spec 
+rpmbuild -bb rhel/openvswitch-kmod-rhel6.spec 
