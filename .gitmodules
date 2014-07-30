@@ -1,0 +1,4 @@
+[submodule "doc"]
+	path = doc
+	url = https://github.com/lofyer/InTheCloud.git
+	branch = master
